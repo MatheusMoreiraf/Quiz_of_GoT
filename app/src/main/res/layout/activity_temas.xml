@@ -11,9 +11,13 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="129dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="188dp"
         android:layout_marginEnd="17dp"
         android:layout_marginRight="17dp"
+        android:contentDescription="Lannister"
+        android:onClick="casaSelecionada"
         app:layout_constraintEnd_toStartOf="@+id/imageView2"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,6 +28,12 @@
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:contentDescription="Targaryen"
+        android:onClick="casaSelecionada"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView"
@@ -33,9 +43,13 @@
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="17dp"
         android:layout_marginRight="17dp"
+        android:contentDescription="Stark"
+        android:onClick="casaSelecionada"
         app:layout_constraintEnd_toStartOf="@+id/imageView4"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,6 +60,12 @@
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:contentDescription="Greyjoy"
+        android:onClick="casaSelecionada"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
@@ -56,7 +76,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="6dp"
         android:text="TARGARYEN"
         android:textColor="#E40003"
         app:layout_constraintStart_toStartOf="@+id/imageView2"
@@ -66,7 +86,7 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="6dp"
         android:text="Lennister"
         android:textColor="#E40003"
         app:layout_constraintStart_toStartOf="@+id/imageView"
@@ -76,7 +96,7 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="6dp"
         android:text="STARK"
         android:textColor="#F1F1F1"
         app:layout_constraintStart_toStartOf="@+id/imageView3"
@@ -86,7 +106,7 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="6dp"
         android:text="GREYJOY"
         android:textColor="#FACA36"
         app:layout_constraintStart_toStartOf="@+id/imageView4"
@@ -94,11 +114,11 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="65dp"
         android:background="#212121"
+        android:gravity="center"
         android:orientation="horizontal"
-        android:paddingTop="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -108,27 +128,47 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_home_white_26dp" />
+            app:srcCompat="@drawable/ic_home_white_26dp"
+            tools:ignore="VectorDrawableCompat" />
 
         <ImageView
             android:id="@+id/imageView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_games_black_24dp" />
+            app:srcCompat="@drawable/ic_game_white_26dp"
+            tools:ignore="VectorDrawableCompat" />
 
         <ImageView
             android:id="@+id/imageView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_sentiment_satisfied_black_24dp" />
+            app:srcCompat="@drawable/ic_trophy_white_26dp"
+            tools:ignore="VectorDrawableCompat" />
 
         <ImageView
             android:id="@+id/imageView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_person_black_24dp" />
+            app:srcCompat="@drawable/ic_person_white_26dp"
+            tools:ignore="VectorDrawableCompat" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Temas: "
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
