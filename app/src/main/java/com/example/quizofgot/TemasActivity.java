@@ -20,7 +20,7 @@ public class TemasActivity extends AppCompatActivity {
         Bundle params = new Bundle();
         params.putString("Casa", String.valueOf(view.getContentDescription()));
         intent.putExtras(params);
-
+        fileList();
         startActivityForResult(intent, CONSTANTE_TELA_DESCRIPTION);
     }
 

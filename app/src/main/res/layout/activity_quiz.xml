@@ -13,14 +13,14 @@
         android:layout_height="187dp"
         android:layout_marginStart="31dp"
         android:layout_marginLeft="31dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="31dp"
         android:layout_marginRight="31dp"
-        android:background="@drawable/botao_customizado"
+        android:background="@drawable/background_white"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
@@ -36,116 +36,103 @@
             android:textSize="19sp" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
+    <Button
+        android:id="@+id/btnA"
         android:layout_width="match_parent"
-        android:layout_height="38dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="31dp"
         android:layout_marginLeft="31dp"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="31dp"
         android:layout_marginRight="31dp"
-        android:gravity="center"
-        android:orientation="vertical"
+        android:background="@drawable/background_white"
+        android:onClick="verificaResposta"
+        android:padding="10dp"
+        android:text="A"
+        android:textAlignment="center"
+        android:textColor="#FF0000"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+
+    <Button
+        android:id="@+id/btnB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginLeft="31dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginRight="31dp"
+        android:background="@drawable/background_white"
+        android:onClick="verificaResposta"
+        android:padding="10dp"
+        android:text="B"
+        android:textAlignment="center"
+        android:textColor="#FF0000"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnA" />
+
+
+    <Button
+        android:id="@+id/btnC"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginLeft="31dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginRight="31dp"
+        android:background="@drawable/background_white"
+        android:onClick="verificaResposta"
+        android:padding="10dp"
+        android:text="C"
+        android:textAlignment="center"
+        android:textColor="#FF0000"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/btnB" />
 
-        <Button
-            android:id="@+id/btnA"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/botao_customizado"
-            android:onClick="verificaResposta"
-            android:text="A"
-            android:textAlignment="center"
-            android:textColor="#FF0000"
-            android:textSize="14sp" />
-    </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout4"
+    <Button
+        android:id="@+id/btnD"
         android:layout_width="match_parent"
-        android:layout_height="38dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="31dp"
         android:layout_marginLeft="31dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="31dp"
         android:layout_marginRight="31dp"
-        android:gravity="center"
-        android:orientation="vertical"
+        android:background="@drawable/background_white"
+        android:onClick="verificaResposta"
+        android:padding="10dp"
+        android:text="D"
+        android:textAlignment="center"
+        android:textColor="#FF0000"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+        app:layout_constraintTop_toBottomOf="@+id/btnC" />
 
-        <Button
-            android:id="@+id/btnB"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/botao_customizado"
-            android:onClick="verificaResposta"
-            android:text="B"
-            android:textAlignment="center"
-            android:textColor="#FF0000"
-            android:textSize="14sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout5"
-        android:layout_width="match_parent"
-        android:layout_height="38dp"
-        android:layout_marginStart="31dp"
-        android:layout_marginLeft="31dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginRight="31dp"
-        android:gravity="center"
-        android:orientation="vertical"
+    <TextView
+        android:id="@+id/textProgresso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="0"
+        android:textColor="#FFFFFF"
+        app:fontFamily="@font/alfa_slab_one"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
-
-        <Button
-            android:id="@+id/btnC"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/botao_customizado"
-            android:onClick="verificaResposta"
-            android:text="C"
-            android:textAlignment="center"
-            android:textColor="#FF0000"
-            android:textSize="14sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="38dp"
-        android:layout_marginStart="31dp"
-        android:layout_marginLeft="31dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginRight="31dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
-
-        <Button
-            android:id="@+id/btnD"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/botao_customizado"
-            android:onClick="verificaResposta"
-            android:text="D"
-            android:textAlignment="center"
-            android:textColor="#FF0000"
-            android:textSize="14sp" />
-    </LinearLayout>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -160,17 +147,6 @@
         android:background="#7A7C7C7C"
         android:max="30"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textProgresso"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="TextView"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/progressBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class QuizActivity extends AppCompatActivity {
+    public static final int CONSTANTE_TELA_RESULTADO = 3;
 
     PerguntasERespostas casas = new PerguntasERespostas();
     String[][] stark = casas.casaStark;
@@ -29,7 +30,7 @@ public class QuizActivity extends AppCompatActivity {
     ArrayList<String> auxList = new ArrayList<>();
     String[] respostaTela;
     int p = 0;
-
+    int acertos = 0;
     boolean paraThread = false;
 
     TextView textPergunta, textProgresso;
@@ -50,6 +51,10 @@ public class QuizActivity extends AppCompatActivity {
         btnD = findViewById(R.id.btnD);
         progressBar = findViewById(R.id.progressBar);
         verificaCasa();
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 
     public void carregarProgressBar() {
@@ -101,7 +106,11 @@ public class QuizActivity extends AppCompatActivity {
             if (params != null) {
                 if (p == 15) {
                     Intent i = new Intent(this, ResultadoActivity.class);
-                    startActivity(i);
+                    Bundle result = new Bundle();
+                    result.putString("Acertos", String.valueOf(acertos));
+                    i.putExtras(result);
+                    finish();
+                    startActivityForResult(i, CONSTANTE_TELA_RESULTADO);
                 } else {
                     String selecionado = params.getString("Casa");
                     if (selecionado.equals("Stark")) {
@@ -122,6 +131,7 @@ public class QuizActivity extends AppCompatActivity {
     public void perguntasCasaStark() {
         pergunta = stark[0][p];
         respostaCerta = stark[1][p];
+        auxList.clear();
 
         for (int i = 0; i < stark.length; i++) {
             auxList.add(stark[i][p]);
@@ -157,6 +167,7 @@ public class QuizActivity extends AppCompatActivity {
     public void perguntasCasaTargaryen() {
         pergunta = targaryen[0][p];
         respostaCerta = targaryen[1][p];
+        auxList.clear();
 
         for (int i = 0; i < targaryen.length; i++) {
             auxList.add(targaryen[i][p]);
@@ -192,6 +203,7 @@ public class QuizActivity extends AppCompatActivity {
     public void perguntasCasaLannister() {
         pergunta = lannister[0][p];
         respostaCerta = lannister[1][p];
+        auxList.clear();
 
         for (int i = 0; i < lannister.length; i++) {
             auxList.add(lannister[i][p]);
@@ -227,6 +239,7 @@ public class QuizActivity extends AppCompatActivity {
     public void perguntasCasaGreyjoy() {
         pergunta = greyjoy[0][p];
         respostaCerta = greyjoy[1][p];
+        auxList.clear();
 
         for (int i = 0; i < greyjoy.length; i++) {
             auxList.add(greyjoy[i][p]);
@@ -264,26 +277,27 @@ public class QuizActivity extends AppCompatActivity {
         final Button b = (Button) v;
 
         if (b.getText().toString().equals(respostaCerta)) {
-            b.setBackgroundColor(Color.parseColor("#45A163"));
+            b.setBackgroundResource(R.drawable.background_green);
             b.setTextColor(Color.parseColor("#FFFFFF"));
+            this.acertos = this.acertos + 1;
             nextResDelay(b);
         } else {
-            b.setBackgroundColor(Color.parseColor("#FD0908"));
+            b.setBackgroundResource(R.drawable.background_red);
             b.setTextColor(Color.parseColor("#FFFFFF"));
             if (btnA.getText().toString().equals(respostaCerta)) {
-                btnA.setBackgroundColor(Color.parseColor("#45A163"));
+                btnA.setBackgroundResource(R.drawable.background_green);
                 btnA.setTextColor(Color.parseColor("#FFFFFF"));
                 nextResDelay(b, btnA);
             } else if (btnB.getText().toString().equals(respostaCerta)) {
-                btnB.setBackgroundColor(Color.parseColor("#45A163"));
+                btnB.setBackgroundResource(R.drawable.background_green);
                 btnB.setTextColor(Color.parseColor("#FFFFFF"));
                 nextResDelay(b, btnB);
             } else if (btnC.getText().toString().equals(respostaCerta)) {
-                btnC.setBackgroundColor(Color.parseColor("#45A163"));
+                btnC.setBackgroundResource(R.drawable.background_green);
                 nextResDelay(b, btnC);
                 btnC.setTextColor(Color.parseColor("#FFFFFF"));
             } else if (btnD.getText().toString().equals(respostaCerta)) {
-                btnD.setBackgroundColor(Color.parseColor("#45A163"));
+                btnD.setBackgroundResource(R.drawable.background_green);
                 btnD.setTextColor(Color.parseColor("#FFFFFF"));
                 nextResDelay(b, btnD);
             }
@@ -306,7 +320,7 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     public void btnDefault(Button btn) {
-        btn.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        btn.setBackgroundResource(R.drawable.background_white);
         btn.setTextColor(Color.parseColor("#FF0000"));
     }
 
@@ -324,9 +338,9 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     public void btnDefault(Button btn1, Button btn2) {
-        btn1.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        btn1.setBackgroundResource(R.drawable.background_white);
         btn1.setTextColor(Color.parseColor("#FF0000"));
-        btn2.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        btn2.setBackgroundResource(R.drawable.background_white);
         btn2.setTextColor(Color.parseColor("#FF0000"));
     }
 
