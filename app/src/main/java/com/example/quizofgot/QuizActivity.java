@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -29,8 +30,11 @@ public class QuizActivity extends AppCompatActivity {
     String[] respostaTela;
     int p = 0;
 
-    TextView textPergunta;
+    boolean paraThread = false;
+
+    TextView textPergunta, textProgresso;
     Button btnA, btnB, btnC, btnD;
+    ProgressBar progressBar;
 
 
     @Override
@@ -39,11 +43,43 @@ public class QuizActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz);
 
         textPergunta = findViewById(R.id.textPergunta);
+        textProgresso = findViewById(R.id.textProgresso);
         btnA = findViewById(R.id.btnA);
         btnB = findViewById(R.id.btnB);
         btnC = findViewById(R.id.btnC);
         btnD = findViewById(R.id.btnD);
+        progressBar = findViewById(R.id.progressBar);
         verificaCasa();
+    }
+
+    public void carregarProgressBar() {
+        paraThread = false;
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i <= 30; i++) {
+                    if (paraThread)
+                        return;
+                    final int progresso = i;
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            progressBar.setProgress(progresso);
+                            textProgresso.setText(String.valueOf(progresso));
+                            if (progresso == 30) {
+                                desabilitaBtn();
+                                tempoEsgotado();
+                            }
+                        }
+                    });
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
     }
 
     public static void embaralhar(String[] v) {
@@ -80,6 +116,7 @@ public class QuizActivity extends AppCompatActivity {
                 }
             }
         }
+        progressBar.setProgress(0);
     }
 
     public void perguntasCasaStark() {
@@ -114,6 +151,7 @@ public class QuizActivity extends AppCompatActivity {
         btnB.setText(respostaTela[1]);
         btnC.setText(respostaTela[2]);
         btnD.setText(respostaTela[3]);
+        carregarProgressBar();
     }
 
     public void perguntasCasaTargaryen() {
@@ -148,6 +186,7 @@ public class QuizActivity extends AppCompatActivity {
         btnB.setText(respostaTela[1]);
         btnC.setText(respostaTela[2]);
         btnD.setText(respostaTela[3]);
+        carregarProgressBar();
     }
 
     public void perguntasCasaLannister() {
@@ -182,6 +221,7 @@ public class QuizActivity extends AppCompatActivity {
         btnB.setText(respostaTela[1]);
         btnC.setText(respostaTela[2]);
         btnD.setText(respostaTela[3]);
+        carregarProgressBar();
     }
 
     public void perguntasCasaGreyjoy() {
@@ -216,9 +256,11 @@ public class QuizActivity extends AppCompatActivity {
         btnB.setText(respostaTela[1]);
         btnC.setText(respostaTela[2]);
         btnD.setText(respostaTela[3]);
+        carregarProgressBar();
     }
 
     public void verificaResposta(View v) {
+        paraThread = true;
         final Button b = (Button) v;
 
         if (b.getText().toString().equals(respostaCerta)) {
@@ -263,7 +305,6 @@ public class QuizActivity extends AppCompatActivity {
         btnD.setEnabled(true);
     }
 
-
     public void btnDefault(Button btn) {
         btn.setBackgroundColor(Color.parseColor("#FFFFFF"));
         btn.setTextColor(Color.parseColor("#FF0000"));
@@ -281,7 +322,6 @@ public class QuizActivity extends AppCompatActivity {
             }
         }, 1500);
     }
-
 
     public void btnDefault(Button btn1, Button btn2) {
         btn1.setBackgroundColor(Color.parseColor("#FFFFFF"));
@@ -301,5 +341,26 @@ public class QuizActivity extends AppCompatActivity {
                 habilitarBtn();
             }
         }, 1500);
+    }
+
+    private void tempoEsgotado() {
+        textProgresso.setText("Tempo Esgotado");
+        if (btnA.getText().toString().equals(respostaCerta)) {
+            btnA.setBackgroundColor(Color.parseColor("#45A163"));
+            btnA.setTextColor(Color.parseColor("#FFFFFF"));
+            nextResDelay(btnA);
+        } else if (btnB.getText().toString().equals(respostaCerta)) {
+            btnB.setBackgroundColor(Color.parseColor("#45A163"));
+            btnB.setTextColor(Color.parseColor("#FFFFFF"));
+            nextResDelay(btnB);
+        } else if (btnC.getText().toString().equals(respostaCerta)) {
+            btnC.setBackgroundColor(Color.parseColor("#45A163"));
+            nextResDelay(btnC);
+            btnC.setTextColor(Color.parseColor("#FFFFFF"));
+        } else if (btnD.getText().toString().equals(respostaCerta)) {
+            btnD.setBackgroundColor(Color.parseColor("#45A163"));
+            btnD.setTextColor(Color.parseColor("#FFFFFF"));
+            nextResDelay(btnD);
+        }
     }
 }
