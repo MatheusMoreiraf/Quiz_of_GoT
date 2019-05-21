@@ -24,4 +24,24 @@ public class TemasActivity extends AppCompatActivity {
         startActivityForResult(intent, CONSTANTE_TELA_DESCRIPTION);
     }
 
+    public void home(View v) {
+        Intent intent = new Intent(this, TemasActivity.class);
+        startActivity(intent);
+    }
+
+    public void confJogo(View v) {
+        Intent intent = new Intent(this, TemasActivity.class);
+        startActivity(intent);
+    }
+
+    public void records(View v) {
+        Intent intent = new Intent(this, TemasActivity.class);
+        startActivity(intent);
+    }
+
+    public void jogador(View v) {
+        Intent intent = new Intent(this, TemasActivity.class);
+        startActivity(intent);
+    }
+
 }

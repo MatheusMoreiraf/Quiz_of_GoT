@@ -1,8 +1,9 @@
 package com.example.quizofgot;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 
 public class ResultadoActivity extends AppCompatActivity {
@@ -23,5 +24,25 @@ public class ResultadoActivity extends AppCompatActivity {
                 textTotalAcertos.setText(acertos);
             }
         }
+    }
+
+    public void home(View v) {
+        Intent intent = new Intent(this, TemasActivity.class);
+        startActivity(intent);
+    }
+
+    public void confJogo(View v) {
+        Intent intent = new Intent(this, TemasActivity.class);
+        startActivity(intent);
+    }
+
+    public void records(View v) {
+        Intent intent = new Intent(this, TemasActivity.class);
+        startActivity(intent);
+    }
+
+    public void jogador(View v) {
+        Intent intent = new Intent(this, TemasActivity.class);
+        startActivity(intent);
     }
 }

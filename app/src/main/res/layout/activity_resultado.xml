@@ -34,6 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="home"
             app:srcCompat="@drawable/ic_home_white_26dp"
             tools:ignore="VectorDrawableCompat" />
 
@@ -42,6 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="confJogo"
             app:srcCompat="@drawable/ic_game_white_26dp"
             tools:ignore="VectorDrawableCompat" />
 
@@ -50,6 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="records"
             app:srcCompat="@drawable/ic_trophy_white_26dp"
             tools:ignore="VectorDrawableCompat" />
 
@@ -58,6 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="jogador"
             app:srcCompat="@drawable/ic_person_white_26dp"
             tools:ignore="VectorDrawableCompat" />
     </LinearLayout>

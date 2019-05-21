@@ -65,9 +65,30 @@ public class DescriptionActivity extends AppCompatActivity {
     public void comecarQuiz(View v) {
         Intent i = new Intent(this, QuizActivity.class);
         Bundle params = new Bundle();
-        params.putString("Casa", String.valueOf(textCasa.getText()  ));
+        params.putString("Casa", String.valueOf(textCasa.getText()));
         i.putExtras(params);
         finish();
         startActivityForResult(i, CONSTANTE_TELA_QUIZ);
     }
+
+    public void home(View v) {
+        Intent intent = new Intent(this, TemasActivity.class);
+        startActivity(intent);
+    }
+
+    public void confJogo(View v) {
+        Intent intent = new Intent(this, TemasActivity.class);
+        startActivity(intent);
+    }
+
+    public void records(View v) {
+        Intent intent = new Intent(this, TemasActivity.class);
+        startActivity(intent);
+    }
+
+    public void jogador(View v) {
+        Intent intent = new Intent(this, TemasActivity.class);
+        startActivity(intent);
+    }
+
 }
