@@ -27,7 +27,7 @@ public class TemasActivity extends AppCompatActivity {
     }
 
     public void confJogo(View v) {
-        Intent intent = new Intent(this, TemasActivity.class);
+        Intent intent = new Intent(this, ConfActivity.class);
         startActivity(intent);
     }
 
