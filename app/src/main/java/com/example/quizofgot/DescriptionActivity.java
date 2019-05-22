@@ -73,21 +73,25 @@ public class DescriptionActivity extends AppCompatActivity {
 
     public void home(View v) {
         Intent intent = new Intent(this, TemasActivity.class);
+        finish();
         startActivity(intent);
     }
 
     public void confJogo(View v) {
         Intent intent = new Intent(this, TemasActivity.class);
+        finish();
         startActivity(intent);
     }
 
     public void records(View v) {
-        Intent intent = new Intent(this, TemasActivity.class);
+        Intent intent = new Intent(this, RankActivity.class);
+        finish();
         startActivity(intent);
     }
 
     public void jogador(View v) {
         Intent intent = new Intent(this, TemasActivity.class);
+        finish();
         startActivity(intent);
     }
 

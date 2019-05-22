@@ -62,7 +62,7 @@ public class QuizActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                for (int i = 0; i <= 30; i++) {
+                for (int i = 0; i <= 14; i++) {
                     if (paraThread)
                         return;
                     final int progresso = i;
@@ -70,8 +70,8 @@ public class QuizActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             progressBar.setProgress(progresso);
-                            textProgresso.setText(String.valueOf(progresso));
-                            if (progresso == 30) {
+                            textProgresso.setText(String.valueOf(progresso + 1));
+                            if (progresso == 14) {
                                 desabilitaBtn();
                                 tempoEsgotado();
                             }

@@ -145,7 +145,7 @@
         android:layout_marginRight="31dp"
         android:layout_marginBottom="16dp"
         android:background="#7A7C7C7C"
-        android:max="30"
+        android:max="14"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
