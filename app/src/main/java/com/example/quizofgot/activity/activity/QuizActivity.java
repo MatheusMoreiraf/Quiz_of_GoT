@@ -108,7 +108,8 @@ public class QuizActivity extends AppCompatActivity {
         if (intent != null) {
             Bundle params = intent.getExtras();
             if (params != null) {
-                textNumQuest.setText((p + 1) + " / 16");
+                if (p < 16)
+                    textNumQuest.setText((p + 1) + " / 16");
                 if (p == 16) {
                     Intent i = new Intent(this, ResultadoActivity.class);
                     Bundle result = new Bundle();
