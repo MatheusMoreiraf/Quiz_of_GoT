@@ -36,7 +36,7 @@ public class QuizActivity extends AppCompatActivity {
     int acertos = 0;
     boolean paraThread = false;
 
-    TextView textPergunta, textProgresso;
+    TextView textPergunta, textProgresso, textNumQuest;
     Button btnA, btnB, btnC, btnD;
     ProgressBar progressBar;
 
@@ -48,6 +48,7 @@ public class QuizActivity extends AppCompatActivity {
 
         textPergunta = findViewById(R.id.textPergunta);
         textProgresso = findViewById(R.id.textProgresso);
+        textNumQuest = findViewById(R.id.textNumQuest);
         btnA = findViewById(R.id.btnA);
         btnB = findViewById(R.id.btnB);
         btnC = findViewById(R.id.btnC);
@@ -107,7 +108,8 @@ public class QuizActivity extends AppCompatActivity {
         if (intent != null) {
             Bundle params = intent.getExtras();
             if (params != null) {
-                if (p == 15) {
+                textNumQuest.setText((p + 1) + " / 16");
+                if (p == 16) {
                     Intent i = new Intent(this, ResultadoActivity.class);
                     Bundle result = new Bundle();
                     result.putString("Acertos", String.valueOf(acertos));

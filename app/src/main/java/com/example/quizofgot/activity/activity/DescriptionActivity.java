@@ -70,7 +70,6 @@ public class DescriptionActivity extends AppCompatActivity {
         Bundle params = new Bundle();
         params.putString("Casa", String.valueOf(textCasa.getText()));
         i.putExtras(params);
-        finish();
         startActivityForResult(i, CONSTANTE_TELA_QUIZ);
     }
 

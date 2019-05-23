@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void btnJogar(View view) {
         Intent intent = new Intent(this, TemasActivity.class);
-        finish();
         startActivity(intent);
     }
 }

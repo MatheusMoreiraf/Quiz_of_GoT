@@ -22,25 +22,21 @@ public class TemasActivity extends AppCompatActivity {
         Bundle params = new Bundle();
         params.putString("Casa", String.valueOf(view.getContentDescription()));
         intent.putExtras(params);
-        fileList();
         startActivityForResult(intent, CONSTANTE_TELA_DESCRIPTION);
     }
 
     public void confJogo(View v) {
         Intent intent = new Intent(this, ConfActivity.class);
-        finish();
         startActivity(intent);
     }
 
     public void records(View v) {
         Intent intent = new Intent(this, RecordsActivity.class);
-        finish();
         startActivity(intent);
     }
 
     public void jogador(View v) {
         Intent intent = new Intent(this, JogadorActivity.class);
-        finish();
         startActivity(intent);
     }
 

@@ -33,7 +33,7 @@ public class RecordsActivity extends AppCompatActivity {
 
         try {
             SQLiteDatabase db = openOrCreateDatabase("app", MODE_PRIVATE, null);
-            cursor = db.rawQuery("SELECT * FROM ranks", null);
+            cursor = db.rawQuery("SELECT * FROM ranks ORDER BY pontuacao DESC", null);
         } catch (Exception e) {
             e.printStackTrace();
         }
