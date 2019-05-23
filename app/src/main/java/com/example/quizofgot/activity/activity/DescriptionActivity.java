@@ -81,7 +81,7 @@ public class DescriptionActivity extends AppCompatActivity {
     }
 
     public void confJogo(View v) {
-        Intent intent = new Intent(this, TemasActivity.class);
+        Intent intent = new Intent(this, ConfActivity.class);
         finish();
         startActivity(intent);
     }
@@ -93,7 +93,7 @@ public class DescriptionActivity extends AppCompatActivity {
     }
 
     public void jogador(View v) {
-        Intent intent = new Intent(this, TemasActivity.class);
+        Intent intent = new Intent(this, JogadorActivity.class);
         finish();
         startActivity(intent);
     }

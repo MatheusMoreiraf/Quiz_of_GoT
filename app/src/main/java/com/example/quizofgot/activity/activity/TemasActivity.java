@@ -28,16 +28,19 @@ public class TemasActivity extends AppCompatActivity {
 
     public void confJogo(View v) {
         Intent intent = new Intent(this, ConfActivity.class);
+        finish();
         startActivity(intent);
     }
 
     public void records(View v) {
         Intent intent = new Intent(this, RecordsActivity.class);
+        finish();
         startActivity(intent);
     }
 
     public void jogador(View v) {
-        Intent intent = new Intent(this, TemasActivity.class);
+        Intent intent = new Intent(this, JogadorActivity.class);
+        finish();
         startActivity(intent);
     }
 
