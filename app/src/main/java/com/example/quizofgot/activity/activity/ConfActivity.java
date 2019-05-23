@@ -29,11 +29,13 @@ public class ConfActivity extends AppCompatActivity {
 
     public void records(View v) {
         Intent intent = new Intent(this, RecordsActivity.class);
+        finish();
         startActivity(intent);
     }
 
     public void jogador(View v) {
-        Intent intent = new Intent(this, TemasActivity.class);
+        Intent intent = new Intent(this, JogadorActivity.class);
+        finish();
         startActivity(intent);
     }
 

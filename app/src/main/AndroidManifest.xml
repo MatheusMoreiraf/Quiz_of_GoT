@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
         <activity android:name=".activity.activity.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,6 +17,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+=======
+        <activity android:name=".activity.activity.JogadorActivity"></activity>
+>>>>>>> d39b5b8d31cb055dcc30f1b6a091b61ce3b17641
         <activity android:name=".activity.activity.ConfActivity" />
         <activity android:name=".activity.activity.RecordsActivity" />
         <activity android:name=".activity.activity.ResultadoActivity" />

@@ -5,53 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    tools:context=".activity.activity.ConfActivity">
-
-    <ImageView
-        android:id="@+id/imgStatusSom"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="84dp"
-        android:layout_marginLeft="84dp"
-        android:layout_marginTop="32dp"
-        android:onClick="stopAndStartSound"
-        android:tag="com som"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
-        app:srcCompat="@drawable/ic_volume_start_white_30dp"
-        tools:ignore="VectorDrawableCompat" />
+    tools:context=".activity.activity.JogadorActivity">
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Configurações"
-        android:textColor="#FFFEFE"
+        android:layout_marginTop="419dp"
+        android:text="Jogador nº1"
+        android:textColor="#FFFFFF"
         android:textSize="36sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:text="Musica"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.29"
-        app:layout_constraintStart_toEndOf="@+id/imgStatusSom"
-        tools:layout_editor_absoluteY="156dp" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -78,6 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="confJogo"
             app:srcCompat="@drawable/ic_game_white_26dp"
             tools:ignore="VectorDrawableCompat" />
 
@@ -95,8 +62,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="jogador"
             app:srcCompat="@drawable/ic_person_white_26dp"
             tools:ignore="VectorDrawableCompat" />
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
