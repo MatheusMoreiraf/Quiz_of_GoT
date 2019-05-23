@@ -28,18 +28,21 @@ public class ConfActivity extends AppCompatActivity {
     }
 
     public void home(View v) {
+        Sound.entreTelasAudio(this);
         Intent intent = new Intent(this, TemasActivity.class);
         finish();
         startActivity(intent);
     }
 
     public void records(View v) {
+        Sound.entreTelasAudio(this);
         Intent intent = new Intent(this, RecordsActivity.class);
         finish();
         startActivity(intent);
     }
 
     public void jogador(View v) {
+        Sound.entreTelasAudio(this);
         Intent intent = new Intent(this, JogadorActivity.class);
         finish();
         startActivity(intent);

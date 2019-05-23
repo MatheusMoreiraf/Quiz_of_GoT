@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.quizofgot.R;
+import com.example.quizofgot.activity.activity.model.Sound;
 
 public class ResultadoActivity extends AppCompatActivity {
 
@@ -45,6 +46,7 @@ public class ResultadoActivity extends AppCompatActivity {
     }
 
     public void btnSalvar(View v) {
+        Sound.entreTelasAudio(this);
 
         System.out.println();
 
@@ -81,24 +83,28 @@ public class ResultadoActivity extends AppCompatActivity {
     }
 
     public void home(View v) {
+        Sound.entreTelasAudio(this);
         Intent intent = new Intent(this, TemasActivity.class);
         finish();
         startActivity(intent);
     }
 
     public void confJogo(View v) {
+        Sound.entreTelasAudio(this);
         Intent intent = new Intent(this, ConfActivity.class);
         finish();
         startActivity(intent);
     }
 
     public void records(View v) {
+        Sound.entreTelasAudio(this);
         Intent intent = new Intent(this, RecordsActivity.class);
         finish();
         startActivity(intent);
     }
 
     public void jogador(View v) {
+        Sound.entreTelasAudio(this);
         Intent intent = new Intent(this, JogadorActivity.class);
         finish();
         startActivity(intent);

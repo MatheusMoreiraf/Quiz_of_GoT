@@ -5,15 +5,14 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.LinearLayout;
 
 import com.example.quizofgot.R;
 import com.example.quizofgot.activity.activity.adapter.AdapterRecords;
 import com.example.quizofgot.activity.activity.model.Record;
+import com.example.quizofgot.activity.activity.model.Sound;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,18 +58,21 @@ public class RecordsActivity extends AppCompatActivity {
 
 
     public void home(View v) {
+        Sound.entreTelasAudio(this);
         Intent intent = new Intent(this, TemasActivity.class);
         finish();
         startActivity(intent);
     }
 
     public void confJogo(View v) {
+        Sound.entreTelasAudio(this);
         Intent intent = new Intent(this, ConfActivity.class);
         finish();
         startActivity(intent);
     }
 
     public void jogador(View v) {
+        Sound.entreTelasAudio(this);
         Intent intent = new Intent(this, JogadorActivity.class);
         finish();
         startActivity(intent);

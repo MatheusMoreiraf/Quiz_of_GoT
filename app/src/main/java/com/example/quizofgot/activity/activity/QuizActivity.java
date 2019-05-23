@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.quizofgot.activity.activity.model.Sound;
 import com.example.quizofgot.activity.activity.util.PerguntasERespostas;
 import com.example.quizofgot.R;
 
@@ -95,6 +96,7 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     public void sairDasPerguntas(View v) {
+        Sound.entreTelasAudio(this);
         paraThread = true;
         finish();
     }

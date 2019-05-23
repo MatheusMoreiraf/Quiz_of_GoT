@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.quizofgot.R;
+import com.example.quizofgot.activity.activity.model.Sound;
 
 public class TemasActivity extends AppCompatActivity {
     public static final int CONSTANTE_TELA_DESCRIPTION = 1;
@@ -18,6 +19,7 @@ public class TemasActivity extends AppCompatActivity {
 
 
     public void casaSelecionada(View view) {
+        Sound.entreTelasAudio(this);
         Intent intent = new Intent(this, DescriptionActivity.class);
         Bundle params = new Bundle();
         params.putString("Casa", String.valueOf(view.getContentDescription()));
@@ -26,16 +28,19 @@ public class TemasActivity extends AppCompatActivity {
     }
 
     public void confJogo(View v) {
+        Sound.entreTelasAudio(this);
         Intent intent = new Intent(this, ConfActivity.class);
         startActivity(intent);
     }
 
     public void records(View v) {
+        Sound.entreTelasAudio(this);
         Intent intent = new Intent(this, RecordsActivity.class);
         startActivity(intent);
     }
 
     public void jogador(View v) {
+        Sound.entreTelasAudio(this);
         Intent intent = new Intent(this, JogadorActivity.class);
         startActivity(intent);
     }

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.quizofgot.activity.activity.model.Sound;
 import com.example.quizofgot.activity.activity.util.DescricaoCasas;
 import com.example.quizofgot.R;
 
@@ -74,24 +75,28 @@ public class DescriptionActivity extends AppCompatActivity {
     }
 
     public void home(View v) {
+        Sound.entreTelasAudio(this);
         Intent intent = new Intent(this, TemasActivity.class);
         finish();
         startActivity(intent);
     }
 
     public void confJogo(View v) {
+        Sound.entreTelasAudio(this);
         Intent intent = new Intent(this, ConfActivity.class);
         finish();
         startActivity(intent);
     }
 
     public void records(View v) {
+        Sound.entreTelasAudio(this);
         Intent intent = new Intent(this, RecordsActivity.class);
         finish();
         startActivity(intent);
     }
 
     public void jogador(View v) {
+        Sound.entreTelasAudio(this);
         Intent intent = new Intent(this, JogadorActivity.class);
         finish();
         startActivity(intent);

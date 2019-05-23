@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnJogar(View view) {
+        Sound.entreTelasAudio(this);
         Intent intent = new Intent(this, TemasActivity.class);
         startActivity(intent);
     }
