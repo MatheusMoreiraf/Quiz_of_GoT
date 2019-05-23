@@ -61,6 +61,44 @@ public class QuizActivity extends AppCompatActivity {
     public void onBackPressed() {
     }
 
+    public void verificaResposta(View v) {
+        paraThread = true;
+        final Button b = (Button) v;
+
+        if (b.getText().toString().equals(respostaCerta)) {
+            b.setBackgroundResource(R.drawable.background_green);
+            b.setTextColor(Color.parseColor("#FFFFFF"));
+            this.acertos = this.acertos + 1;
+            nextResDelay(b);
+        } else {
+            b.setBackgroundResource(R.drawable.background_red);
+            b.setTextColor(Color.parseColor("#FFFFFF"));
+            if (btnA.getText().toString().equals(respostaCerta)) {
+                btnA.setBackgroundResource(R.drawable.background_green);
+                btnA.setTextColor(Color.parseColor("#FFFFFF"));
+                nextResDelay(b, btnA);
+            } else if (btnB.getText().toString().equals(respostaCerta)) {
+                btnB.setBackgroundResource(R.drawable.background_green);
+                btnB.setTextColor(Color.parseColor("#FFFFFF"));
+                nextResDelay(b, btnB);
+            } else if (btnC.getText().toString().equals(respostaCerta)) {
+                btnC.setBackgroundResource(R.drawable.background_green);
+                nextResDelay(b, btnC);
+                btnC.setTextColor(Color.parseColor("#FFFFFF"));
+            } else if (btnD.getText().toString().equals(respostaCerta)) {
+                btnD.setBackgroundResource(R.drawable.background_green);
+                btnD.setTextColor(Color.parseColor("#FFFFFF"));
+                nextResDelay(b, btnD);
+            }
+        }
+        desabilitaBtn();
+    }
+
+    public void sairDasPerguntas(View v) {
+        paraThread = true;
+        finish();
+    }
+
     public void carregarProgressBar() {
         paraThread = false;
         new Thread(new Runnable() {
@@ -91,7 +129,7 @@ public class QuizActivity extends AppCompatActivity {
         }).start();
     }
 
-    public static void embaralhar(String[] v) {
+    public void embaralhar(String[] v) {
         Random random = new Random();
         for (int i = 0; i < (v.length - 1); i++) {
             //sorteia um índice
@@ -278,39 +316,6 @@ public class QuizActivity extends AppCompatActivity {
         carregarProgressBar();
     }
 
-    public void verificaResposta(View v) {
-        paraThread = true;
-        final Button b = (Button) v;
-
-        if (b.getText().toString().equals(respostaCerta)) {
-            b.setBackgroundResource(R.drawable.background_green);
-            b.setTextColor(Color.parseColor("#FFFFFF"));
-            this.acertos = this.acertos + 1;
-            nextResDelay(b);
-        } else {
-            b.setBackgroundResource(R.drawable.background_red);
-            b.setTextColor(Color.parseColor("#FFFFFF"));
-            if (btnA.getText().toString().equals(respostaCerta)) {
-                btnA.setBackgroundResource(R.drawable.background_green);
-                btnA.setTextColor(Color.parseColor("#FFFFFF"));
-                nextResDelay(b, btnA);
-            } else if (btnB.getText().toString().equals(respostaCerta)) {
-                btnB.setBackgroundResource(R.drawable.background_green);
-                btnB.setTextColor(Color.parseColor("#FFFFFF"));
-                nextResDelay(b, btnB);
-            } else if (btnC.getText().toString().equals(respostaCerta)) {
-                btnC.setBackgroundResource(R.drawable.background_green);
-                nextResDelay(b, btnC);
-                btnC.setTextColor(Color.parseColor("#FFFFFF"));
-            } else if (btnD.getText().toString().equals(respostaCerta)) {
-                btnD.setBackgroundResource(R.drawable.background_green);
-                btnD.setTextColor(Color.parseColor("#FFFFFF"));
-                nextResDelay(b, btnD);
-            }
-        }
-        desabilitaBtn();
-    }
-
     public void desabilitaBtn() {
         btnA.setEnabled(false);
         btnB.setEnabled(false);
@@ -330,7 +335,7 @@ public class QuizActivity extends AppCompatActivity {
         btn.setTextColor(Color.parseColor("#FF0000"));
     }
 
-    private void nextResDelay(final Button b) {
+    public void nextResDelay(final Button b) {
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -350,7 +355,7 @@ public class QuizActivity extends AppCompatActivity {
         btn2.setTextColor(Color.parseColor("#FF0000"));
     }
 
-    private void nextResDelay(final Button b, final Button btn) {
+    public void nextResDelay(final Button b, final Button btn) {
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -363,7 +368,7 @@ public class QuizActivity extends AppCompatActivity {
         }, 1500);
     }
 
-    private void tempoEsgotado() {
+    public void tempoEsgotado() {
         textProgresso.setText("Tempo Esgotado");
         if (btnA.getText().toString().equals(respostaCerta)) {
             btnA.setBackgroundColor(Color.parseColor("#45A163"));

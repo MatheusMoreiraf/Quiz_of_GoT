@@ -3,8 +3,10 @@ package com.example.quizofgot.activity.activity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -12,14 +14,15 @@ import com.example.quizofgot.R;
 
 public class ResultadoActivity extends AppCompatActivity {
 
-    TextView textTotalAcertos, etNome;
+    TextView textTotalAcertos;
+    TextInputEditText etNome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultado);
         textTotalAcertos = findViewById(R.id.textTotalAcertos);
-        etNome = (TextView) findViewById(R.id.etNome);
+        etNome = (TextInputEditText) findViewById(R.id.etNome);
 
 
         Intent intent = getIntent();
@@ -30,6 +33,15 @@ public class ResultadoActivity extends AppCompatActivity {
                 textTotalAcertos.setText(acertos);
             }
         }
+
+        etNome.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    esconderTeclado(v);
+                }
+            }
+        });
     }
 
     public void btnSalvar(View v) {
@@ -40,6 +52,7 @@ public class ResultadoActivity extends AppCompatActivity {
         String pontuacao = textTotalAcertos.getText().toString();
 
         String resultado = "";
+        esconderTeclado(v);
 
         if (!etnome.equals("")) {
             try {
@@ -57,6 +70,13 @@ public class ResultadoActivity extends AppCompatActivity {
             startActivity(intent);
         } else {
             Toast.makeText(getBaseContext(), "Para Salvar Coloque um nome", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void esconderTeclado(View v) {
+        if (v != null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(v.getWindowToken(), 0);
         }
     }
 
