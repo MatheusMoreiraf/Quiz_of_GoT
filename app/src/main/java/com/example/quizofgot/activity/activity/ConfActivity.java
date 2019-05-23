@@ -1,17 +1,15 @@
 package com.example.quizofgot.activity.activity;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.example.quizofgot.R;
+import com.example.quizofgot.activity.activity.model.Sound;
 
 public class ConfActivity extends AppCompatActivity {
-
-    private MediaPlayer mp = new MediaPlayer();
     private ImageView imgStatusSom;
 
     @Override
@@ -19,6 +17,14 @@ public class ConfActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conf);
         imgStatusSom = findViewById(R.id.imgStatusSom);
+        if (Sound.mp.isPlaying()) {
+            imgStatusSom.setImageResource(R.drawable.ic_volume_start_white_30dp);
+            imgStatusSom.setTag("com som");
+        }
+        else {
+            imgStatusSom.setImageResource(R.drawable.ic_volume_off_white_30dp);
+            imgStatusSom.setTag("sem som");
+        }
     }
 
     public void home(View v) {
@@ -42,25 +48,13 @@ public class ConfActivity extends AppCompatActivity {
     public void stopAndStartSound(View v) {
 
         if (imgStatusSom.getTag().equals("com som")) {
-            MediaPlayer mp = new MediaPlayer();
-            mp.stop();
+            Sound.stopAudio();
             imgStatusSom.setImageResource(R.drawable.ic_volume_off_white_30dp);
             imgStatusSom.setTag("sem som");
         } else {
-//            stopPlaying();
-//            mp = MediaPlayer.create(this, R.raw.got_sound);
-//            mp.start();
-//            mp.setLooping(true);
-//            imgStatusSom.setImageResource(R.drawable.ic_volume_start_white_30dp);
-//            imgStatusSom.setTag("com som");
-        }
-    }
-
-    private void stopPlaying() {
-        if (mp != null) {
-            mp.stop();
-            mp.release();
-            mp = null;
+            Sound.playAudio(this, R.raw.got_sound);
+            imgStatusSom.setImageResource(R.drawable.ic_volume_start_white_30dp);
+            imgStatusSom.setTag("com som");
         }
     }
 }
